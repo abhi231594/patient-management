@@ -1,2 +1,3 @@
 # patient-management
-manage patient, view prescription
+
+a [Sails](http://sailsjs.org) application
