@@ -1,0 +1,16 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.u-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.u-hidden {
+  display: none;
+}

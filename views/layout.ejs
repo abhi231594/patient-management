@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%=typeof title == 'undefined' ? 'New Sails App' : title%></title>
+    <title><%=typeof title == 'undefined' ? 'Patient Management System' : title%></title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!--
         Stylesheets and Preprocessors
@@ -29,14 +29,49 @@
     -->
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/styles/material.min.css">
+    <link rel="stylesheet" href="/styles/main.css">
     <!--STYLES END-->
   </head>
 
   <body>
-    <%- body %>
-
-
-
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title"><a href="/">Health Assist</a></span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <% if(typeof userData != "undefined" && userData){ %>
+              <a class="mdl-navigation__link" href="/">Hi <%= userData.name %> </a>
+              <a class="mdl-navigation__link" href="/logout">Logout</a>
+             <% } else{%>
+               <a class="mdl-navigation__link" href="/login">Login/Signup</a>
+            <% } %>
+          </nav>
+        </div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Health Assist</span>
+        <nav class="mdl-navigation">
+          <% if(typeof userData != "undefined" && userData && userData.roleId == '1'){ %>
+            <a class="mdl-navigation__link" href="/medical-records">My Medical Records</a>
+            <a class="mdl-navigation__link" href="/prescription-records">My Prescriptions</a>
+          <% } else if(typeof userData != "undefined" && userData && (userData.roleId == '2' || userData.roleId == '3')) {%>
+            <a class="mdl-navigation__link" href="/get-prescription-access">Check Patient Prescription</a>
+          <% } %>
+          <a class="mdl-navigation__link" href="/about">About</a>
+          <a class="mdl-navigation__link" href="/tnc">Terms & Condition</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+        <div class="page-content">
+          <%- body %>
+        </div>
+      </main>
+    </div>
     <!--
         Client-side Templates
         ========================
@@ -59,6 +94,7 @@
     -->
 
     <!--TEMPLATES-->
+
     <!--TEMPLATES END-->
 
 
@@ -86,6 +122,10 @@
     -->
 
     <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+    <script src="/js/dependencies/jquery-3.2.1.min.js"></script>
+    <script src="/js/dependencies/main.js"></script>
+    <script src="/js/dependencies/material.min.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>

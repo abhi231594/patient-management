@@ -1,0 +1,28 @@
+<% if(prescriptions.length){ %>
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Sr.no</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Check details</th>
+      </tr>
+    </thead>
+    <tbody>
+       <% for(var i=0; i < prescriptions.length; i++) { %>
+        <tr>
+          <td><%=i+1%></td>
+          <td class="mdl-data-table__cell--non-numeric"><%=prescriptions[i].description%></td>
+          <td class="mdl-data-table__cell--non-numeric"><%=moment(prescriptions[i].createdAt).format('Do MMMM, YYYY')%></td>
+          <td class="mdl-data-table__cell--non-numeric">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/prescription-records/<%=prescriptions[i].id%>" target="_blank">
+              click here
+            </a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+ <% } else { %>
+   <h6>No Prescription Record Found</h6>
+<% } %>

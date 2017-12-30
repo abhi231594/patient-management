@@ -1,0 +1,22 @@
+<% if(medicalRecord){ %>
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Sr.no</th>
+        <th class="mdl-data-table__cell--non-numeric">Id</th>
+        <th>Description</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><%=medicalRecord.id%></td>
+        <td class="mdl-data-table__cell--non-numeric"><%=medicalRecord.description%></td>
+        <td class="mdl-data-table__cell--non-numeric"><%=moment(medicalRecord.createdAt).format('Do MMMM, YYYY')%></td>
+      </tr>
+    </tbody>
+  </table>
+ <% } else { %>
+   <h6>  No medical Record Found with this ID </h6>
+<% } %>

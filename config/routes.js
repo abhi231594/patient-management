@@ -32,9 +32,35 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {
-    view: 'homepage'
-  }
+  'get /': 'HomeController.indexPage',
+
+  'get /about': 'StaticController.getStaticPage',
+
+  'get /tnc': 'StaticController.getStaticPage',
+
+  'get /login': 'AuthController.loginPage',
+
+  'get /signup': 'AuthController.signupPage',
+
+  'post /login': 'AuthController.login',
+
+  'post /signup': 'AuthController.signup',
+
+  '/logout': 'AuthController.logout',
+
+  'get /medical-records': 'MedicalRecordController.getMyMedicalRecord',
+
+  'get /medical-records/:medicalRecordId': 'MedicalRecordController.getMedicalRecordById',
+
+  'get /prescription-records': 'PrescriptionController.getMyPrescriptionRecord',
+
+  'get /prescription-records/:prescriptionId':'PrescriptionController.getPrescriptionRecordById',
+
+  'get /get-prescription-access':'PrescriptionController.getAllPrescriptionRecord',
+
+  'put  /change-prescription-access-status/:id':'PrescriptionAccessController.updateStatus',
+
+  'post  /get-prescription-access/:id':'PrescriptionAccessController.getPrescriptionAccess',
 
   /***************************************************************************
   *                                                                          *

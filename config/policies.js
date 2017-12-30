@@ -26,7 +26,7 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+  '*': true,
 
   /***************************************************************************
   *                                                                          *
@@ -48,4 +48,22 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+  PrescriptionAccessStatusController: {
+    '*': 'sessionAuth'
+  },
+  PrescriptionController: {
+    '*': 'sessionAuth'
+  },
+  PrescriptionAccessController: {
+    '*': 'sessionAuth'
+  },
+  MedicalRecordController: {
+    '*': 'sessionAuth',
+  },
+  UserController: {
+    '*':'sessionAuth'
+  },
+  RoleController: {
+    '*':'sessionAuth'
+  }
 };
