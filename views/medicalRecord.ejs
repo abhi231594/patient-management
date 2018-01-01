@@ -6,6 +6,7 @@
         <th class="mdl-data-table__cell--non-numeric">Id</th>
         <th>Description</th>
         <th>Date</th>
+        <th>Prescriptions</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +15,17 @@
         <td><%=medicalRecord.id%></td>
         <td class="mdl-data-table__cell--non-numeric"><%=medicalRecord.description%></td>
         <td class="mdl-data-table__cell--non-numeric"><%=moment(medicalRecord.createdAt).format('Do MMMM, YYYY')%></td>
+        <td class="mdl-data-table__cell--non-numeric">
+          <% if(medicalRecord.prescriptions.length){ %>
+             <% for(var i=0; i < medicalRecord.prescriptions.length; i++) { %>
+               <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/prescription-records/<%=medicalRecord.prescriptions[i].id%>" target="_blank">
+                 Prescription <%=i + 1%>
+               </a>
+             <% } %>
+          <% } else { %>
+            No Prescription for this Record
+          <% } %>
+        </td>
       </tr>
     </tbody>
   </table>
