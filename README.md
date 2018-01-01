@@ -37,7 +37,7 @@ email: [patient1@test.com](mailto:&#39;patient1@test.com)
 
 password: 12345678
 
-email: [patient1@test.com](mailto:&#39;patient1@test.com)
+email: [doctor1@test.com](mailto:&#39;patient1@test.com)
 
 password: 12345678
 
