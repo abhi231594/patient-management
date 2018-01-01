@@ -29,7 +29,5 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
   migrate: 'alter'
-  //  migrate: 'drop',
-  //  schema:true,
 
 };
