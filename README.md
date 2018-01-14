@@ -4,21 +4,6 @@
 
 Website to access patient prescription
 
-**Use cases**
-
-This section talks about the different use cases served by this service:
-
-- Build an application where the User&#39;s data can be shared only if they approve it.
-- There are 3 types of users/roles:
-
-1.    Patient/User
-
-2.    Doctor
-
-3.    Pharmacist
-
-- The Patient has medical records and prescriptions. If a doctor asks for a patient&#39;s prescription, the patient has to approve it. Same goes with the Pharmacist, if the pharmacist wants to view the patient&#39;s prescription, the patient has to approve it.
-
 **Clients**
 
 - **External customers:** Website where patient can sign in and check medical record and prescription.
